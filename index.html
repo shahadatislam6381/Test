@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenith Foundation | Peak of Academic Excellence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
+    <style>
+        :root { --zenith-blue: #2563eb; --zenith-slate: #0f172a; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; color: #334155; scroll-behavior: smooth; }
+        .page { display: none; }
+        .active-page { display: block; animation: fadeInUp 0.6s ease-out; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid #e2e8f0; }
+        .btn-primary { background: var(--zenith-blue); color: white; transition: 0.3s; }
+        .btn-primary:hover { background: #1d4ed8; transform: translateY(-2px); box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.4); }
+        .btn-secondary { background: white; color: var(--zenith-blue); border: 1.5px solid var(--zenith-blue); transition: 0.3s; }
+        .btn-secondary:hover { background: #f0f7ff; transform: translateY(-2px); }
+        .input-box { border: 1.5px solid #e2e8f0; padding: 12px 14px; border-radius: 12px; width: 100%; transition: 0.2s; background: #ffffff; outline: none; font-size: 14px; }
+        .input-box:focus { border-color: var(--zenith-blue); }
+        .stat-card { background: white; border: 1px solid #f1f5f9; padding: 40px; border-radius: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); transition: 0.3s; }
+        .info-tag { background: #eff6ff; color: #2563eb; padding: 6px 14px; border-radius: 100px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .option-btn { width: 100%; text-align: left; padding: 16px; border: 1.5px solid #f1f5f9; border-radius: 12px; transition: 0.2s; margin-bottom: 12px; font-weight: 500; }
+        .option-btn:hover { border-color: var(--zenith-blue); background: #eff6ff; }
+        
+        /* Result Score Animation */
+        .score-pop { animation: popScale 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        @keyframes popScale { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed top-0 w-full z-50 glass-nav px-4 md:px-12 py-4 flex justify-between items-center border-b border-slate-100">
+        <div class="flex items-center gap-3 cursor-pointer" onclick="showPage('home')">
+            <div class="bg-blue-600 w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-lg">
+                <i class="fas fa-mountain"></i>
+            </div>
+            <div>
+                <h1 class="text-xl font-extrabold text-slate-900 tracking-tight uppercase leading-none">ZENITH</h1>
+                <p class="text-[9px] uppercase tracking-[0.3em] font-bold text-blue-600 mt-1">Foundation</p>
+            </div>
+        </div>
+        <div class="hidden md:flex gap-10 text-[11px] font-bold uppercase tracking-widest text-slate-500">
+            <button onclick="showPage('home')" class="hover:text-blue-600 transition">Impact</button>
+            <button onclick="showPage('apply')" class="btn-primary px-8 py-2.5 rounded-full shadow-md">Apply Now</button>
+        </div>
+        <button onclick="showPage('apply')" class="md:hidden btn-primary px-5 py-2 rounded-full text-[10px] font-bold uppercase">Apply</button>
+    </nav>
+
+    <main class="pt-28 pb-20 px-4 md:px-6">
+
+        <section id="home" class="page active-page max-w-6xl mx-auto">
+            <div class="text-center mb-16 space-y-6">
+                <span class="info-tag">Undergraduate Program 2026</span>
+                <h2 class="text-4xl md:text-7xl font-extrabold text-slate-900 leading-tight tracking-tighter">
+                    Empowering Merit <br><span class="text-blue-600 italic font-medium">Across Boundaries.</span>
+                </h2>
+                <p class="text-slate-500 max-w-3xl mx-auto text-base md:text-lg font-normal leading-relaxed">
+                    Since 1992, Zenith Foundation UK has empowered over 20,000 scholars across 100+ universities worldwide. We are now offering exclusive undergraduate funding for Private University aspirants in Bangladesh.
+                </p>
+
+                <div class="flex flex-col items-center gap-6 pt-4">
+                    <div class="flex flex-col md:flex-row justify-center gap-4 w-full max-w-2xl">
+                        <button onclick="showPage('apply')" class="btn-primary flex-1 py-4 rounded-2xl font-bold text-lg shadow-lg">Register for Screening</button>
+                        <button onclick="showPage('quiz')" class="btn-secondary flex-1 py-4 rounded-2xl font-bold text-lg">Assessment Room</button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-3xl">
+                        <div class="bg-white border border-slate-200 p-4 rounded-2xl">
+                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Application Start</p>
+                            <p class="text-slate-900 font-extrabold">01 March 2026</p>
+                        </div>
+                        <div class="bg-white border border-slate-200 p-4 rounded-2xl">
+                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Application Deadline</p>
+                            <p class="text-slate-900 font-extrabold">25 March 2026</p>
+                        </div>
+                        <div class="bg-white border border-slate-200 p-4 rounded-2xl border-b-4 border-blue-500">
+                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Official Exam</p>
+                            <p class="text-slate-900 font-extrabold">26 March 2026, 11 AM</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-emerald-50 px-8 py-3 rounded-full flex items-center gap-3 border border-emerald-100">
+                        <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+                        <span class="text-emerald-700 font-bold uppercase text-[10px] tracking-widest">1,000 Seats Allocated for Bangladesh</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+                <div class="stat-card">
+                    <h4 class="text-slate-400 text-[11px] font-bold uppercase tracking-widest mb-3">Global Scholars</h4>
+                    <p class="text-5xl font-extrabold text-slate-900">20,000+</p>
+                    <p class="text-xs text-slate-400 mt-4 leading-relaxed">Assisted since the foundation's establishment in London.</p>
+                </div>
+                <div class="stat-card border-t-4 border-blue-600">
+                    <h4 class="text-slate-400 text-[11px] font-bold uppercase tracking-widest mb-3">Institutional Reach</h4>
+                    <p class="text-5xl font-extrabold text-slate-900">100+</p>
+                    <p class="text-xs text-slate-400 mt-4 leading-relaxed">Premier universities covered by our independent donor unit.</p>
+                </div>
+                <div class="stat-card">
+                    <h4 class="text-slate-400 text-[11px] font-bold uppercase tracking-widest mb-3">Legacy Timeline</h4>
+                    <p class="text-5xl font-extrabold text-slate-900">Est. 1992</p>
+                    <p class="text-xs text-slate-400 mt-4 leading-relaxed">Decades of transparency and merit-based philanthropy.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="apply" class="page max-w-5xl mx-auto py-8">
+            <div class="bg-white rounded-[2.5rem] shadow-xl border border-slate-100 overflow-hidden">
+                <div class="bg-slate-900 p-12 text-center text-white">
+                    <h2 class="text-3xl font-extrabold mb-3 uppercase tracking-tight">Phase 01: Registration</h2>
+                    <p class="text-slate-400 text-xs font-bold uppercase tracking-widest">Complete the form with your legal credentials</p>
+                </div>
+
+                <form id="registrationForm" class="p-8 md:p-14 space-y-12" onsubmit="handleRegistration(event)">
+                    <div class="space-y-6">
+                        <h3 class="text-[11px] font-black uppercase tracking-widest text-blue-600 border-b pb-2">Student Identity</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <input type="text" name="name" placeholder="Full Legal Name" class="input-box" required>
+                            <input type="tel" name="mobile" placeholder="Mobile Number" class="input-box" required>
+                            <input type="email" name="email" placeholder="Email Address" class="input-box md:col-span-2" required>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <h3 class="text-[11px] font-black uppercase tracking-widest text-slate-800 border-b pb-2">Secondary Credentials (SSC)</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                            <input type="text" name="ssc_roll" placeholder="Roll No" class="input-box" required>
+                            <input type="text" name="ssc_reg" placeholder="Reg No" class="input-box" required>
+                            <input type="number" name="ssc_gpa" step="0.01" placeholder="GPA" class="input-box" required>
+                            <select name="ssc_board" class="input-box"><option>Board</option><option>Dhaka</option><option>Chattogram</option><option>Rajshahi</option><option>Sylhet</option><option>Barishal</option><option>Cumilla</option><option>Jashore</option><option>Dinajpur</option><option>Mymensingh</option><option>Madrasah</option></select>
+                            <input type="number" name="ssc_year" placeholder="Year" class="input-box" required>
+                        </div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <h3 class="text-[11px] font-black uppercase tracking-widest text-slate-800 border-b pb-2">Higher Secondary Credentials (HSC)</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                            <input type="text" name="hsc_roll" placeholder="Roll No" class="input-box" required>
+                            <input type="text" name="hsc_reg" placeholder="Reg No" class="input-box" required>
+                            <input type="number" name="hsc_gpa" step="0.01" placeholder="GPA" class="input-box" required>
+                            <select name="hsc_board" class="input-box"><option>Board</option><option>Dhaka</option><option>Chattogram</option><option>Rajshahi</option><option>Sylhet</option><option>Barishal</option><option>Cumilla</option><option>Jashore</option><option>Dinajpur</option><option>Mymensingh</option><option>Madrasah</option></select>
+                            <input type="number" name="hsc_year" placeholder="Year" class="input-box" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="regBtn" class="btn-primary w-full py-5 rounded-2xl font-black text-lg tracking-widest uppercase shadow-xl">Submit Application</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="quiz" class="page max-w-4xl mx-auto py-12 text-center">
+            <div id="quiz-access" class="bg-white p-12 md:p-24 rounded-[3rem] border border-slate-100 shadow-sm">
+                <div class="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mx-auto mb-8 text-slate-300">
+                    <i class="fas fa-user-lock text-2xl"></i>
+                </div>
+                <h2 class="text-3xl font-black text-slate-900 mb-6 uppercase tracking-tighter">Assessment Room</h2>
+                <div class="text-slate-500 font-medium mb-12 leading-relaxed text-sm max-w-md mx-auto space-y-4">
+                    <p>Shortlisted candidates will receive Access Key via email on 25 March. Exam Date: 26 March, 11am.</p>
+                    <p class="bg-blue-50 p-4 rounded-xl text-blue-600 font-bold border border-blue-100 uppercase text-[10px] tracking-widest italic">80 Questions | 60 Minutes</p>
+                </div>
+                <div class="max-w-xs mx-auto space-y-4">
+                    <input type="text" id="access-key" placeholder="Enter Access Key" class="input-box text-center font-bold tracking-widest">
+                    <input type="text" id="exam-roll" placeholder="Enter Exam Roll" class="input-box text-center font-bold uppercase">
+                    <button onclick="startExam()" class="btn-primary w-full py-4 rounded-xl font-bold uppercase text-xs">Unlock & Start Exam</button>
+                </div>
+            </div>
+
+            <div id="quiz-box" class="hidden bg-white p-8 md:p-14 rounded-[3rem] shadow-xl border border-slate-100 text-left">
+                <div class="flex justify-between items-center mb-10 border-b pb-4">
+                    <span id="q-count" class="text-blue-600 font-bold text-lg">Question 01 / 80</span>
+                    <span class="text-red-500 font-bold bg-red-50 px-5 py-2 rounded-xl border border-red-100">
+                        <i class="fas fa-clock mr-2"></i><span id="timer">60:00</span>
+                    </span>
+                </div>
+                <h3 id="question-text" class="text-xl md:text-2xl font-bold text-slate-900 mb-10 leading-snug italic">Loading Assessment...</h3>
+                <div id="options-container" class="grid grid-cols-1 gap-3"></div>
+            </div>
+
+            <div id="quiz-result" class="hidden bg-white p-8 md:p-16 rounded-[2.5rem] md:rounded-[4rem] text-center shadow-sm border border-slate-100">
+                <div class="text-5xl md:text-6xl mb-6 text-blue-600 score-pop"><i class="fas fa-award"></i></div>
+                <h2 class="text-xl md:text-3xl font-black text-slate-900 mb-2 uppercase tracking-tight">Assessment Complete</h2>
+                <p class="text-slate-400 font-bold uppercase text-[10px] tracking-[0.2em] mb-8">Performance Analysis Summary</p>
+                
+                <div class="bg-blue-50 p-8 md:p-12 rounded-[2rem] md:rounded-[2.5rem] mb-10 relative overflow-hidden">
+                    <p id="final-score" class="text-6xl md:text-8xl font-black text-blue-600 relative z-10">0/80</p>
+                    <p class="text-blue-400 font-bold mt-2 md:mt-4 uppercase text-[10px] tracking-widest relative z-10">Global Merit Score</p>
+                </div>
+
+                <div class="max-w-md mx-auto space-y-6 text-slate-600 mb-10">
+                    <p class="text-sm md:text-base leading-relaxed font-medium">
+                        Your responses have been successfully recorded. Our expert panel is currently reviewing your merit profile and assessment performance. 
+                    </p>
+                    <div class="bg-emerald-50 p-4 rounded-2xl border border-emerald-100">
+                        <p class="text-emerald-700 font-bold text-sm">
+                            <i class="fas fa-envelope-open-text mr-2"></i>
+                            If you are selected for the scholarship, you will be notified via your registered email address with further instructions.
+                        </p>
+                    </div>
+                </div>
+
+                <button onclick="location.reload()" class="bg-slate-900 text-white px-10 md:px-14 py-4 rounded-full font-bold uppercase text-[10px] w-full md:w-auto hover:bg-slate-800 transition shadow-lg">Close Portal</button>
+            </div>
+        </section>
+
+        <div id="success-modal" class="fixed inset-0 bg-slate-900/90 z-[100] flex items-center justify-center px-4 hidden">
+            <div class="bg-white p-12 rounded-[3.5rem] text-center max-w-md shadow-2xl border-t-8 border-blue-600">
+                <div class="text-6xl mb-6 text-blue-600"><i class="fas fa-check-circle"></i></div>
+                <h2 class="text-2xl font-black text-slate-900 mb-4 uppercase">Application Received</h2>
+                <p class="text-slate-500 mb-10 text-sm leading-relaxed">Wait for the shortlisted candidates announcement on 25 March via Registered Email.</p>
+                <button onclick="location.reload()" class="bg-slate-900 text-white px-12 py-3 rounded-full font-bold uppercase tracking-widest text-[10px]">Acknowledge</button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="max-w-6xl mx-auto px-6 py-16 border-t border-slate-200 text-center space-y-4">
+        <p class="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-400">Zenith Foundation Based On United Kingdom</p>
+        <p class="text-[9px] font-medium text-slate-400 uppercase tracking-widest italic">Independent Philanthropic Donor Unit | Serving Merit Since 1992</p>
+    </footer>
+
+    <script>
+        const API_URL = "https://api.sheetbest.com/sheets/100d69bd-8b1d-4783-904c-5949a1edb026";
+
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active-page'));
+            document.getElementById(id).classList.add('active-page');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        async function handleRegistration(e) {
+            e.preventDefault();
+            const btn = document.getElementById('regBtn');
+            btn.innerText = "Processing...";
+            btn.disabled = true;
+
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify([data])
+                });
+                if(response.ok) document.getElementById('success-modal').classList.remove('hidden');
+                else throw new Error('Network error');
+            } catch (error) {
+                alert("Submission failed. Check column names in Sheet.");
+                btn.innerText = "Submit Application";
+                btn.disabled = false;
+            }
+        }
+
+        let currentQ = 0; let score = 0; let timeLeft = 3600; let timerInterval;
+        let examUserRoll = "";
+
+        const questions = [
+            { q: "Which is the correct sentence?", a: ["He don't like coffee.", "He doesn't likes coffee.", "He doesn't like coffee.", "He not like coffee."], c: 2 },
+            { q: "Synonym of 'Resilient':", a: ["Weak", "Flexible", "Stubborn", "Quiet"], c: 1 },
+            { q: "Past participle of 'Write'?", a: ["Wrote", "Written", "Writing", "Writes"], c: 1 },
+            { q: "Neither the teacher nor the students ___ present.", a: ["is", "was", "were", "has"], c: 2 },
+            { q: "Antonym of 'Humble':", a: ["Proud", "Polite", "Modest", "Kind"], c: 0 },
+            { q: "I look forward to ___ you.", a: ["see", "seen", "seeing", "saw"], c: 2 },
+            { q: "Success depends ___ hard work.", a: ["in", "on", "at", "for"], c: 1 },
+            { q: "Identify the abstract noun:", a: ["Gold", "Water", "Freedom", "Teacher"], c: 2 },
+            { q: "Meaning of 'Call it a day'?", a: ["Start work", "Stop working", "Go to sleep", "Have a party"], c: 1 },
+            { q: "He is good ___ English.", a: ["in", "at", "on", "with"], c: 1 },
+            { q: "Correct spelling?", a: ["Maintenance", "Maintainance", "Maintenence", "Maintenanse"], c: 0 },
+            { q: "A person who hates mankind is a:", a: ["Optimist", "Misanthrope", "Philanthropist", "Theist"], c: 1 },
+            { q: "Plural of 'Ox'?", a: ["Oxes", "Oxs", "Oxen", "Oxens"], c: 2 },
+            { q: "Correct article: 'He is ___ honest man.'", a: ["a", "an", "the", "none"], c: 1 },
+            { q: "Meaning of 'A piece of cake'?", a: ["Delicious", "Very easy", "Very hard", "A gift"], c: 1 },
+            { q: "Synonym of 'Abundant'?", a: ["Plentiful", "Scarcity", "Small", "Rare"], c: 0 },
+            { q: "She ___ her homework yesterday.", a: ["finish", "finishes", "finished", "has finished"], c: 2 },
+            { q: "The train ___ before I reached the station.", a: ["left", "had left", "has left", "leaves"], c: 1 },
+            { q: "Antonym of 'Fragile'?", a: ["Weak", "Strong", "Soft", "Breakable"], c: 1 },
+            { q: "Which word is an adjective?", a: ["Quickly", "Happiness", "Beautiful", "Run"], c: 2 },
+            { q: "One who knows many languages is a:", a: ["Polyglot", "Pilot", "Scientist", "Artist"], c: 0 },
+            { q: "He died ___ cancer.", a: ["by", "of", "from", "with"], c: 1 },
+            { q: "Plural of 'Sheep'?", a: ["Sheeps", "Sheepes", "Sheep", "Ship"], c: 2 },
+            { q: "I am tired ___ waiting.", a: ["by", "with", "of", "for"], c: 2 },
+            { q: "A 'Green thumb' means:", a: ["Skill in gardening", "Jealousy", "Dirty hand", "Skill in art"], c: 0 },
+            { q: "What is 15% of 200?", a: ["20", "25", "30", "35"], c: 2 },
+            { q: "Solve: 25 + 5 × 2", a: ["60", "35", "50", "30"], c: 1 },
+            { q: "Smallest prime number?", a: ["0", "1", "2", "3"], c: 2 },
+            { q: "Square root of 144?", a: ["10", "11", "12", "14"], c: 2 },
+            { q: "If x + 5 = 12, what is x?", a: ["5", "7", "8", "17"], c: 1 },
+            { q: "How many sides does a hexagon have?", a: ["5", "6", "7", "8"], c: 1 },
+            { q: "1/2 + 1/4 = ?", a: ["1/6", "2/4", "3/4", "1/8"], c: 2 },
+            { q: "Value of Pi (approx)?", a: ["2.14", "3.14", "4.14", "5.14"], c: 1 },
+            { q: "How many seconds in 5 minutes?", a: ["200", "250", "300", "350"], c: 2 },
+            { q: "Perimeter of square with side 5cm?", a: ["10cm", "15cm", "20cm", "25cm"], c: 2 },
+            { q: "1000 ÷ 25 = ?", a: ["40", "50", "25", "60"], c: 0 },
+            { q: "If 3x = 15, then x² is:", a: ["5", "10", "25", "30"], c: 2 },
+            { q: "Zeros in one million?", a: ["5", "6", "7", "8"], c: 1 },
+            { q: "Leap year has how many days?", a: ["364", "365", "366", "367"], c: 2 },
+            { q: "Average of 10, 20, 30?", a: ["15", "20", "25", "30"], c: 1 },
+            { q: "2 to the power of 3 (2³)?", a: ["4", "6", "8", "9"], c: 2 },
+            { q: "A century has how many years?", a: ["10", "50", "100", "1000"], c: 2 },
+            { q: "Which is greater: 0.5 or 0.05?", a: ["0.5", "0.05", "Equal", "None"], c: 0 },
+            { q: "1km = ___ meters.", a: ["10", "100", "1000", "10000"], c: 2 },
+            { q: "Area of rectangle 4m x 3m?", a: ["7m²", "12m²", "14m²", "10m²"], c: 1 },
+            { q: "Next number: 2, 4, 8, 16, ___?", a: ["20", "24", "32", "64"], c: 2 },
+            { q: "Odd one out:", a: ["Apple", "Carrot", "Mango", "Banana"], c: 1 },
+            { q: "If WATER is 12345, RATE is:", a: ["4235", "4135", "4253", "5234"], c: 0 },
+            { q: "Finger is to Hand as Leaf is to:", a: ["Tree", "Branch", "Flower", "Root"], c: 1 },
+            { q: "Next number: 1, 3, 6, 10, 15, ___?", a: ["18", "20", "21", "25"], c: 2 },
+            { q: "Uncle is to Aunt as Nephew is to:", a: ["Sister", "Niece", "Mother", "Daughter"], c: 1 },
+            { q: "Next letter: A, C, E, G, ___?", a: ["H", "I", "J", "K"], c: 1 },
+            { q: "How many months have 28 days?", a: ["1", "6", "9", "12"], c: 3 },
+            { q: "Rearrange 'RACE' for a word for:", a: ["A fruit", "Care", "A bird", "A place"], c: 1 },
+            { q: "Light is to Eye as Sound is to:", a: ["Leg", "Ear", "Nose", "Tongue"], c: 1 },
+            { q: "Which doesn't belong?", a: ["Guitar", "Violin", "Flute", "Cello"], c: 2 },
+            { q: "If 1=5, 2=25, 3=125, then 4=?", a: ["225", "525", "625", "1000"], c: 2 },
+            { q: "Smallest fraction?", a: ["1/2", "1/4", "1/8", "1/10"], c: 3 },
+            { q: "Monday is 1st, 5th day is?", a: ["Thursday", "Friday", "Saturday", "Sunday"], c: 1 },
+            { q: "A clock shows 3:15, hour hand points?", a: ["North", "South", "East", "West"], c: 2 },
+            { q: "Largest ocean?", a: ["Atlantic", "Indian", "Pacific", "Arctic"], c: 2 },
+            { q: "Planet known as Red Planet?", a: ["Venus", "Mars", "Jupiter", "Saturn"], c: 1 },
+            { q: "UK Currency?", a: ["Euro", "Dollar", "Pound", "Yen"], c: 2 },
+            { q: "Capital of Japan?", a: ["Seoul", "Beijing", "Tokyo", "Bangkok"], c: 2 },
+            { q: "Eiffel Tower location?", a: ["Germany", "Italy", "France", "Spain"], c: 2 },
+            { q: "Founder of Microsoft?", a: ["Steve Jobs", "Elon Musk", "Bill Gates", "Zuckerberg"], c: 2 },
+            { q: "Smallest country?", a: ["Monaco", "Malta", "Vatican City", "San Marino"], c: 2 },
+            { q: "Gas plants absorb?", a: ["Oxygen", "Nitrogen", "Hydrogen", "CO2"], c: 3 },
+            { q: "Who painted Mona Lisa?", a: ["Picasso", "Van Gogh", "Da Vinci", "Michelangelo"], c: 2 },
+            { q: "Organ that pumps blood?", a: ["Lungs", "Brain", "Heart", "Liver"], c: 2 },
+            { q: "Longest river?", a: ["Amazon", "Nile", "Mississippi", "Yangtze"], c: 1 },
+            { q: "First man on Moon?", a: ["Neil Armstrong", "Buzz Aldrin", "Yuri Gagarin", "Elon Musk"], c: 0 },
+            { q: "Fastest land animal?", a: ["Lion", "Tiger", "Cheetah", "Horse"], c: 2 },
+            { q: "Vitamin from Sunlight?", a: ["Vit A", "Vit B", "Vit C", "Vit D"], c: 3 },
+            { q: "Boiling point of water?", a: ["90°C", "100°C", "110°C", "120°C"], c: 1 },
+            { q: "HQ of UN location?", a: ["London", "Geneva", "New York", "Paris"], c: 2 },
+            { q: "Continents on Earth?", a: ["5", "6", "7", "8"], c: 2 },
+            { q: "Great Wall location?", a: ["India", "Japan", "China", "Korea"], c: 2 },
+            { q: "Statue of Liberty gift from?", a: ["UK", "France", "Canada", "Germany"], c: 1 },
+            { q: "Capital of USA?", a: ["New York", "Washington D.C.", "LA", "Chicago"], c: 1 }
+        ];
+
+        function startExam() {
+            const key = document.getElementById('access-key').value.toUpperCase();
+            const roll = document.getElementById('exam-roll').value.trim();
+            if(key === "ZENITH92" && roll !== "") { 
+                examUserRoll = roll;
+                document.getElementById('quiz-access').classList.add('hidden');
+                document.getElementById('quiz-box').classList.remove('hidden');
+                startTimer(); loadQuestion();
+            } else { alert("Verification Failed! Enter Access Key & Roll."); }
+        }
+
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                let mins = Math.floor(timeLeft / 60);
+                let secs = timeLeft % 60;
+                document.getElementById('timer').innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                if(timeLeft <= 0) finishExam();
+                timeLeft--;
+            }, 1000);
+        }
+
+        function loadQuestion() {
+            const data = questions[currentQ];
+            document.getElementById('q-count').innerText = `Question ${(currentQ + 1).toString().padStart(2, '0')} / 80`;
+            document.getElementById('question-text').innerText = data.q;
+            const container = document.getElementById('options-container');
+            container.innerHTML = "";
+            data.a.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "option-btn";
+                btn.innerText = opt;
+                btn.onclick = () => {
+                    if(idx === data.c) score++;
+                    currentQ++;
+                    if(currentQ < questions.length) loadQuestion();
+                    else finishExam();
+                };
+                container.appendChild(btn);
+            });
+        }
+
+        async function finishExam() {
+            clearInterval(timerInterval);
+            document.getElementById('quiz-box').classList.add('hidden');
+            document.getElementById('quiz-result').classList.remove('hidden');
+            document.getElementById('final-score').innerText = `${score}/80`;
+
+            // Confetti Animation Trigger
+            var duration = 5 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+            function randomInRange(min, max) {
+              return Math.random() * (max - min) + min;
+            }
+
+            var interval = setInterval(function() {
+              var timeLeft = animationEnd - Date.now();
+
+              if (timeLeft <= 0) {
+                return clearInterval(interval);
+              }
+
+              var particleCount = 50 * (timeLeft / duration);
+              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
+
+            const resultData = {
+                exam_roll: examUserRoll,
+                score: `${score}/80`
+            };
+
+            try {
+                await fetch(API_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify([resultData])
+                });
+            } catch (e) { console.log("Result save failed"); }
+        }
+    </script>
+</body>
+</html>
